@@ -27,7 +27,23 @@ function eventLoopShouldContinue() {
 // event loop illustrated as a while loop
 // entire body executes in one 'tick'
 while (eventLoopShouldContinue()) {
+    // 1) node looks at pending timers
+    // and sees if any functions are ready to be called
 
+    // 2) node looks at pending OS tasks and pending operations
+    // and calls relevant callback functions
+
+    // 3) pause execution, will continue when
+    // - new pending os task is done
+    // - or new pending operation is done
+    // - or a timer is about to complete
+
+    // 4) node looks at pending timers
+    // only looks for setImmediate functions
+
+    // 5) handle any 'close' events
+    // 'close' events would handle cleanup code
+    // such as closing servers etc
 }
 
 // exit back to terminal
